@@ -1,8 +1,11 @@
 # QuickerWrite isolated runner
 
 This AGPL-3.0 runner exposes the repository's presentation runtime through
-QuickerWrite's neutral `v1` JSON job protocol. It is an independent program
-and image: QuickerWrite does not import or package this repository.
+QuickerWrite's neutral `v1` JSON job protocol. In QuickerWrite it is bundled
+under `api/ppt_engines` and automatically supervised by the API startup
+chain; operators do not start it or configure a Runner URL separately.
+It remains a separate Node process and source tree, and QuickerWrite never
+imports its implementation into the Django commercial core.
 
 ## Changes in this fork
 
@@ -28,6 +31,10 @@ and image: QuickerWrite does not import or package this repository.
 | `GET` | `/v1/jobs/{id}/artifacts/presentation` | Download the HTML deck |
 | `GET` | `/v1/previews/{showcase,editorial,swiss}` | Read repository-local previews |
 | `GET` | `/source` and `/source/archive` | AGPL corresponding-source offer |
+
+The following standalone container is only a development/debugging option for
+this AGPL repository. It is not a separate service in QuickerWrite's Compose
+deployment:
 
 ```bash
 docker build -f quickerwrite-runner/Dockerfile -t guizang-ppt-runner:local .
