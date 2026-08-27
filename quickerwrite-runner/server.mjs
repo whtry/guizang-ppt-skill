@@ -132,7 +132,11 @@ const server = http.createServer(async (req, res) => {
     try { const data = fs.readFileSync(sourceArchive()); res.writeHead(200, { 'content-type': 'application/gzip', 'content-disposition': 'attachment; filename="guizang-ppt-skill-source.tar.gz"', 'content-length': data.length }); return res.end(data); }
     catch (error) { return json(res, 500, { error: String(error.message) }); }
   }
-  if (req.method === 'GET' && url.pathname.startsWith('/v1/previews/')) {
+  if (req.method === 'GET' && new Set([
+    '/v1/previews/showcase',
+    '/v1/previews/editorial',
+    '/v1/previews/swiss',
+  ]).has(url.pathname)) {
     const file = path.join(root, 'assets/ppt-skill-showcase.png');
     const data = fs.readFileSync(file); res.writeHead(200, { 'content-type': 'image/png', 'content-length': data.length }); return res.end(data);
   }

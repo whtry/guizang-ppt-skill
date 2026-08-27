@@ -1,5 +1,10 @@
 # Guizang PPT Skill · 网页 PPT / 配图 / 封面
 
+> [!IMPORTANT]
+> 本 fork 的 `quickerwrite-runner-v1` 分支是面向 QuickerWrite 的 AGPL 隔离运行版。它新增中立 JSON v1 作业协议、HMAC 签名、异步任务、HTML 产物下载、本地效果图和对应源码下载；QuickerWrite 主程序只通过 HTTP 调用，不导入本仓库代码。
+>
+> 部署镜像已删除 QuickerWrite 不使用的 Skill 安装文档、开发校验器、截图背景、GitHub 工作流和示例资源，只保留 Style A / Style B 模板、Motion 本地运行时、效果总览与 Runner。生成的 HTML 会内联 Motion，不依赖本仓库相邻文件，也不使用 GitHub 图片链接。部署与接口说明见 [`quickerwrite-runner/README.md`](./quickerwrite-runner/README.md)。原项目的一般 Agent Skill 用法仍保留在下文，版权与 AGPL-3.0 许可不变。
+
 ![GitHub stars](https://img.shields.io/github/stars/op7418/guizang-ppt-skill?style=flat-square)
 ![License](https://img.shields.io/github/license/op7418/guizang-ppt-skill?style=flat-square)
 ![Skill](https://img.shields.io/badge/Skill-Agent-111111?style=flat-square)
